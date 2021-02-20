@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+ {% block content%}
+{% if user.is_authenticated %}
+<p>Authenticated as
+<pre>
+Name: {{ user.get_full_name }}
+Email: {{ user.email }}
+Id: {{ user.id }}
+
+</pre>
+</p>
+<p>You can <a href="/accounts/logout">Logout</a></p>
+{% else %}
+<p>You can <a href="/accounts/login">Login</a> if you like.</p>
+{% endif %}
+{% if islocal %}
+ require a user login to be created.
+</p>
+{% endif %}
+
+{% endblock %}
