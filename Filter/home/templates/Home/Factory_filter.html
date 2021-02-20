@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for fact in filter.qs %}
+    <li>{{ fact.Factory_Name }} - {{ fact.Factory_ID }}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}
