@@ -8,15 +8,15 @@ class gov (models.Model):
         return str(self.gov_name) 
 class Factory(models.Model):
     
-    Factory_Name=models.CharField(max_length=500)
-    Factory_ID=models.CharField(max_length=20 ,primary_key=True)
-    Factory_Address=models.TextField(max_length=500)
-    Factory_city=models.CharField(max_length=50)
-    Factory_gov=models.ForeignKey(gov,on_delete=models.CASCADE,blank=True,null=True)
-    Factory_Manger=models.CharField(max_length=100)
-    Factory_Activity=models.CharField(max_length=100)
-    Mobile_number=models.CharField(max_length=12)
-    phone_number = PhoneNumberField(null=True,blank=True,default=None,)
+    Factory_Name=models.CharField(max_length=500,verbose_name="اسم المنشأه")
+    Factory_ID=models.CharField(max_length=20 ,primary_key=True,verbose_name="رقم السجل")
+    Factory_Address=models.TextField(max_length=500,verbose_name="العنوان")
+    Factory_city=models.CharField(max_length=50,verbose_name="المدينة")
+    Factory_gov=models.ForeignKey(gov,on_delete=models.CASCADE,blank=True,null=True,verbose_name="المحافظة")
+    Factory_Manger=models.CharField(max_length=100,verbose_name="المدير")
+    Factory_Activity=models.CharField(max_length=100,verbose_name="النشاط")
+    Mobile_number=models.CharField(max_length=12,verbose_name="رقم الموبايل")
+    phone_number = PhoneNumberField(null=True,blank=True,default=None,verbose_name="رقم التليفون")
     def __str__(self):
         return str(self.Factory_ID) 
 
