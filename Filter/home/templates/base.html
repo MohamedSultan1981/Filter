@@ -1,28 +1,140 @@
-{% load static  %}
 
+{% load static %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <!--
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>data</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'home/images/favicons/favicon-32x32.png' %}" >
+  <link rel="icon" type="image/png" sizes="16x16" href= "{% static 'home/images/favicons/favicon-16x16.png' %}">
+  <link rel="manifest" href= "{% static 'home/images/favicons/site.webmanifest' %}">
+
+  <!-- Google Fonts -
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+-->
+<link href="{% static 'home/styles/bootstrap.css' %}" rel="stylesheet" type="text/css">
+  <!-- Vendor CSS Files -->
+  <!--<link href="{% static 'home/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   
-    <link href="{% static 'home/styles/bootstrap.css' %}" rel="stylesheet" type="text/css">
-   <link href="{% static 'home/styles/style.css' %}" rel="stylesheet" type="text/css">
-   <link href="{% static 'home/styles/custom-responsive-style.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'home/styles/Site.css' %}" rel="stylesheet" type="text/css">
-   <script type="text/javascript" src="{% static 'home/script/jquery-3.2.1.min.js' %}"></script>
-   <script type="text/javascript" src="{% static 'home/script/bootstrap.js' %}"></script>
-    </head>
-    <body>
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"> -->
+  <link href="{% static 'home/vendor/aos/aos.css' %}" rel="stylesheet">
+ 
+  <link href="{% static 'home/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'home/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'home/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.1.1
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header ">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'home/images/logo.png' %}" alt="" style="padding-left:100%">
+        
+      </a>
+
+        <nav id="navbar" class="navbar">
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
     <div class="container">
-        {% block content%}
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <div data-aos="fade-up">
+          
+          
+          <div id="data" class="container"> 
+   {% block content %}
 
 
         
-        {%endblock%}
+        {% endblock %}
+</div>
+  
+          
+          
+          
+          </div>
+          <h2 data-aos="fade-up" data-aos-delay="400"></h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+                           
+             
+            </div>
+       
         </div>
-    </body>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'home/images/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+
+    <section id="about" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+    {% block results %}
+
+
+        
+        {% endblock %}
+ 
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+    <div class="footer" style="text-align:center">
+    	<span lang="ar-eg">C</span>opy<span lang="ar-eg">R</span>ights IDA ا<span lang="ar-eg">الهيئة 
+		العامة للتنميه الصناعيه</span></div>
+   
+
+  
+
+ 
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'home/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'home/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'home/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'home/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'home/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'home/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'home/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'home/script/main.js' %}"></script>
+
+</body>
+
 </html>
