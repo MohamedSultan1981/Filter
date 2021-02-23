@@ -20,3 +20,12 @@ class Factory(models.Model):
     def __str__(self):
         return str(self.Factory_ID) 
 
+class address(models.Model):
+    
+    ADDRESS_TYPE_ID = models.IntegerField(primary_key=True)
+    NAME = models.CharField(max_length=50, null = True,blank=True)
+    NAME_EN = models.CharField(max_length=25, null = True,blank=True)
+    def __str__(self):
+        return str(self.NAME) 
+    class Meta:
+         db_table = "employees"

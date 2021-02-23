@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load  django_tables2 %}
+{% load i18n %}
+{% block content %}
+
+  <form method="get">
+  {% translate 'is in' as 'تاتات'%}
+  <h4>{% translate "This is the title." %}</h4>
+    {{ filter.form |crispy }}
+    <button type="submit" class="btn btn-success btn-lg">Search</button>
+  </form>
+  <br/>
+  {% endblock %}
+   {% block results %}
+  <div class="card bg-light text-dark">
+  <div class="card-header bg-secondary text-white"><h3>نتائج البحث</h3></div>
+  <div class="card-body">
+    
+   {% render_table table 'django_tables2/bootstrap.html'%}
+   </div>
+   <a href="{% export_url "csv" %}">enter</a>
+    
+{% for format in view.export_formats %}
+<a href="{% export_url format %}">
+download <code>.{{ format }}</code>
+</a>
+{% endfor %}
+{% endblock %}

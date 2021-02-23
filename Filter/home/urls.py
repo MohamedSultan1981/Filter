@@ -5,5 +5,5 @@ from django_filters.views import FilterView
 from .filters import FactoryFilter
 urlpatterns = [
     #path('', FilterView.as_view(filterset_class=FactoryFilter), name='search'),
-    path('', views.FilteredFactoryListView.as_view(), name='search'),
+    path('', views.FilteredaddressListView.as_view(), name='search'),
 ]

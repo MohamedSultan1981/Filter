@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'crispy_forms',
     "django_tables2",
+    "cx_Oracle"
 
 ]
 
@@ -79,10 +80,20 @@ WSGI_APPLICATION = 'Filter.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+''' DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+} '''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'prod1',
+        'USER': 'ida_rep',
+        'PASSWORD': 'report123',        
+        'HOST':'192.168.160.110',
+        'PORT':'1521'
     }
 }
 
@@ -109,13 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGES = [
-    ('en','English'),
-    ('ar-eg', 'arabic')
-]
-ANGUAGE_CODE = 'ar-eg'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Cairo'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

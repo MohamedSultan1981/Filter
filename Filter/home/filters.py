@@ -1,4 +1,4 @@
-from .models import Factory
+from .models import Factory,address
 from django import forms
 import django_filters
 from phonenumber_field.widgets import  PhoneNumberInternationalFallbackWidget
@@ -18,3 +18,9 @@ class FactoryFilter(django_filters.FilterSet):
         }
        
 
+class addressFilter(django_filters.FilterSet):
+    
+
+    class Meta:
+        model = address
+        fields = ['NAME']

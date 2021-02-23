@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 from django.conf import settings
-from .models import Factory
-from .filters import FactoryFilter
+from .models import Factory,address
+from .filters import FactoryFilter,addressFilter
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
 from django_tables2.export.views import ExportMixin
@@ -25,4 +25,8 @@ class HomeView(LoginRequiredMixin,View):
 class FilteredFactoryListView(SingleTableMixin, FilterView,ExportMixin):
     model =Factory
     filterset_class = FactoryFilter
+
+class FilteredaddressListView(SingleTableMixin, FilterView,ExportMixin):
+    model =address
+    adsressFilter = addressFilter
     
