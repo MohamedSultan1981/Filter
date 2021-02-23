@@ -28,4 +28,5 @@ class address(models.Model):
     def __str__(self):
         return str(self.NAME) 
     class Meta:
-         db_table = "employees"
+         db_table = '\"IDA\".\"ADDRESS_TYPES\"'
+        
