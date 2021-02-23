@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from django.views import View
 from django.conf import settings
+from .models import Factory
+from .filters import FactoryFilter
+from django_filters.views import FilterView
+from django_tables2.views import SingleTableMixin
+from django_tables2.export.views import ExportMixin
+
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -15,3 +21,8 @@ class HomeView(LoginRequiredMixin,View):
             'islocal': islocal
         }
         return render(request, 'home/index.html', context)
+
+class FilteredFactoryListView(SingleTableMixin, FilterView,ExportMixin):
+    model =Factory
+    filterset_class = FactoryFilter
+    
