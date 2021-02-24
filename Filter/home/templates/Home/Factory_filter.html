@@ -6,8 +6,7 @@
 {% block content %}
 
   <form method="get">
-  {% translate 'is in' as 'تاتات'%}
-  <h4>{% translate "This is the title." %}</h4>
+ 
     {{ filter.form |crispy }}
     <button type="submit" class="btn btn-success btn-lg">Search</button>
   </form>
@@ -27,4 +26,38 @@
 download <code>.{{ format }}</code>
 </a>
 {% endfor %}
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date joined</th>
+      <th>Groups</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in filter.qs %}
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.date_joined }}</td>
+        <td>
+          {% for group in user.groups.all %}
+            {{ group }}
+          {% empty %}
+            <em class="text-muted">No group</em>
+          {% endfor %}
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5">No data</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

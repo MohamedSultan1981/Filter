@@ -6,8 +6,7 @@
 {% block content %}
 
   <form method="get">
-  {% translate 'is in' as 'تاتات'%}
-  <h4>{% translate "This is the title." %}</h4>
+ 
     {{ filter.form |crispy }}
     <button type="submit" class="btn btn-success btn-lg">Search</button>
   </form>
