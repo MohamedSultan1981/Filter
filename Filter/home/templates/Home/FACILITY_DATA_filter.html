@@ -1,8 +1,7 @@
-
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load  django_tables2 %}
-{% load i18n %}
+<!-- {% load render_table from django_tables2 %} -->
 {% block content %}
 
   <form method="get">
@@ -17,7 +16,8 @@
   <div class="card-header bg-secondary text-white"><h3>نتائج البحث</h3></div>
   <div class="card-body">
     
-   {% render_table table 'django_tables2/bootstrap.html'%}
+    {% render_table table 'django_tables2/bootstrap.html'%}
+   <!-- {% render_table filter.qs 'django_tables2/bootstrap.html'%} -->
    </div>
    <a href="{% export_url "csv" %}">enter</a>
     
@@ -26,4 +26,36 @@
 download <code>.{{ format }}</code>
 </a>
 {% endfor %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date joined</th>
+      <th>Groups</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for fact in filter.qs %}
+      <tr>
+        <td>{{ fact.NAME }}</td>
+        <td>{{ fact.CEO_NAME }}</td>
+        <td>{{ fact.DETAILED_ADDRESS }}</td>
+        <td>{{ fact.PRIMARY_MOBILE }}</td>
+        <td>
+          {% for p in fact.Prouducts.all %}
+            {{ p}}
+          {% empty %}
+            <em class="text-muted">No group</em>
+          {% endfor %}
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5">No data</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

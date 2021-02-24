@@ -27,7 +27,7 @@ class INDUSTRIAL_PRODUCTS(models.Model):
     def __str__(self):
         return str(self.PRODUCT_TITLE) 
     class Meta:
-
+        ordering = ['PRODUCT_TITLE']
         db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
 class FACILITY_DATA(models.Model):
     
@@ -48,10 +48,11 @@ class FACILITY_DATA(models.Model):
 
 
 class FACILITY_PRODUCTS(models.Model):
-    FACILITY_ID = models.ForeignKey(FACILITY_DATA,on_delete=models.CASCADE)
-    PRODUCT_ID = models.ForeignKey(INDUSTRIAL_PRODUCTS,on_delete=models.CASCADE)
+    FACILITY= models.ForeignKey(FACILITY_DATA,on_delete=models.CASCADE)
+    PRODUCT= models.ForeignKey(INDUSTRIAL_PRODUCTS,on_delete=models.CASCADE)
     UNIT_ID = models.IntegerField()
     PRODUCT_QUANTITY = models.DecimalField( max_digits=38, decimal_places=3)
+
     
     def __str__(self):
         return str(self.UNIT_ID) 
@@ -59,6 +60,7 @@ class FACILITY_PRODUCTS(models.Model):
     class Meta:
 
         db_table = r'"IDA"."FACILITY_PRODUCTS"'
+        
 
     
 
