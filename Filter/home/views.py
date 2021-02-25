@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 from django.conf import settings
-from .models import Factory,FACILITY_DATA
-from .filters import FactoryFilter,FACILITY_DATAFilter
+from .models import FACILITY_DATA
+from .filters import FACILITY_DATAFilter
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
 from django_tables2.export.views import ExportMixin
@@ -22,10 +22,11 @@ class HomeView(LoginRequiredMixin,View):
         }
         return render(request, 'home/index.html', context)
 
-class FilteredFactoryListView(SingleTableMixin, FilterView,ExportMixin):
-    model =Factory
-    filterset_class = FactoryFilter
+
 
 class FilteredFACILITY_DATAListView(SingleTableMixin, FilterView,ExportMixin):
-    model =FACILITY_DATA
-    filterset_class=FACILITY_DATAFilter
+        model =FACILITY_DATA
+        paginate_by = 4
+        def get_queryset(self):
+            queryset = super().get_queryset()
+            return FACILITY_DATAFilter(self.request.GET, queryset=queryset).qs

@@ -1,8 +1,8 @@
-from .models import Factory,FACILITY_DATA
+from .models import FACILITY_DATA
 from django import forms
 import django_filters
 from phonenumber_field.widgets import  PhoneNumberInternationalFallbackWidget
-class FactoryFilter(django_filters.FilterSet):
+""" class FactoryFilter(django_filters.FilterSet):
     Factory_ID: django_filters.CharFilter(label="hello")
 
     class Meta:
@@ -16,7 +16,7 @@ class FactoryFilter(django_filters.FilterSet):
             'phone_number': 'PhoneNumberInternationalFallbackWidget',
             
         }
-       
+        """
 
 class FACILITY_DATAFilter(django_filters.FilterSet):
     NAME = django_filters.CharFilter(lookup_expr='icontains')
