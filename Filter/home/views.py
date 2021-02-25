@@ -26,6 +26,6 @@ class FilteredFactoryListView(SingleTableMixin, FilterView,ExportMixin):
     model =Factory
     filterset_class = FactoryFilter
 
-class FilteredaddressListView(SingleTableMixin, FilterView,ExportMixin):
+class FilteredFACILITY_DATAListView(SingleTableMixin, FilterView,ExportMixin):
     model =FACILITY_DATA
     filterset_class=FACILITY_DATAFilter
