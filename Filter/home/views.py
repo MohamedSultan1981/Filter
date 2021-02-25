@@ -7,6 +7,7 @@ from django_tables2.views import SingleTableMixin
 from django_tables2.export.views import ExportMixin
 from django_filters.views import FilterView
 from .models import FACILITY_DATA
+from .filters import FACILITY_DATAFilter
 class HomeView(LoginRequiredMixin,View):
     def get(self, request):
         print(request.get_host())
