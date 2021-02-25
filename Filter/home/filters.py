@@ -1,6 +1,7 @@
 from .models import Factory,FACILITY_DATA
 import django_filters
 from phonenumber_field.widgets import  PhoneNumberInternationalFallbackWidget
+from .models import FACILITY_DATA
 class FactoryFilter(django_filters.FilterSet):
   
 
