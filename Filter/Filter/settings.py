@@ -86,7 +86,18 @@ WSGI_APPLICATION = 'Filter.wsgi.application'
     }
 }
  """
- 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'prod1',
+        'USER': 'ida_rep',
+        'PASSWORD': 'report123',        
+        'HOST':'192.168.160.110',
+        'PORT':'1521'
+    }
+}
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
