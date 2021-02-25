@@ -3,7 +3,8 @@ from django.views import View
 from django.conf import settings
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django_tables2.views import SingleTableMixin
+from django_tables2.export.views import ExportMixin
 
 class HomeView(LoginRequiredMixin,View):
     def get(self, request):
