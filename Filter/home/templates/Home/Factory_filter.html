@@ -16,13 +16,7 @@
    {% render_table filter.qs 'django_tables2/bootstrap.html'%}
   <!---->
 
-{% autopaginate f.qs 40 as filter_list %}
 
-    {% for obj in filter_list %}
-        {{ obj.name }} - ${{ obj.price }}<br />
-    {% endfor %}
-
-    {% paginate %}
   <table class="table table-stripe">
     <thead>
       <tr>

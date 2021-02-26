@@ -15,3 +15,17 @@ class HomeView(LoginRequiredMixin,View):
             'islocal': islocal
         }
         return render(request, 'home/index.html', context)
+class FilteredFactoryListView(SingleTableMixin, FilterView,ExportMixin):
+    model =Factory
+    filterset_class = FactoryFilter
+    paginate_by = 1
+
+
+
+''' {% autopaginate f.qs 40 as filter_list %}
+
+    {% for obj in filter_list %}
+        {{ obj.name }} - ${{ obj.price }}<br />
+    {% endfor %} 
+    {% paginate %}
+    '''
