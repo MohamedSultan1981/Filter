@@ -9,9 +9,9 @@ class FactoryFilter(django_filters.FilterSet):
     class Meta:
         model = Factory
 
-        fields = {'Factory_Name':['in']
-        , 'Factory_ID':['in']
-        , 'Factory_Activity':['in'],'Factory_gov':['in'],'phone_number':['in'],'my__reg':['in']}
+        fields = ['Factory_Name'
+        , 'Factory_ID'
+        , 'Factory_Activity','Factory_gov','phone_number','products']
         lables={
           'my__reg':["رقم السجل"]
 

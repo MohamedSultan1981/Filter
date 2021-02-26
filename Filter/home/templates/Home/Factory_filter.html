@@ -46,10 +46,15 @@
             {% endfor %}
           </td>
           <td>
-         {{fact.tt.all}} --{{fact.Productquantaies}}
+            {% for q in fact.Productquantities.all%}
+             {{q.Productq}}<br>
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+      
           <td>
             {% for prod in fact.products.all %}
-              {{ prod.Productname}}---{{prod.Productq}}<br>
+              {{ prod.Productname}}<br>
             {% empty %}
               <em class="text-muted">No group</em>
             {% endfor %}
