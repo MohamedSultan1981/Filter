@@ -5,10 +5,19 @@ from phonenumber_field.widgets import  PhoneNumberInternationalFallbackWidget
 class FactoryFilter(django_filters.FilterSet):
   
 
-    my__reg=django_filters.CharFilter(lookup_expr='in',label="رقم السجل")
+    my__reg=django_filters.BaseInFilter(lookup_expr='in',label="رقم السجل")
     class Meta:
         model = Factory
-        fields = ['Factory_Name', 'Factory_ID', 'Factory_Activity','Factory_gov','phone_number','my__reg']
+
+        fields = {'Factory_Name':['in']
+        , 'Factory_ID':['in']
+        , 'Factory_Activity':['in'],'Factory_gov':['in'],'phone_number':['in'],'my__reg':['in']}
+        lables={
+          'my__reg':["رقم السجل"]
+
+
+        }
+        #fields = ['Factory_Name', 'Factory_ID', 'Factory_Activity','Factory_gov','phone_number','my__reg']
         widgets = {
             'phone_number': PhoneNumberInternationalFallbackWidget,
         }
