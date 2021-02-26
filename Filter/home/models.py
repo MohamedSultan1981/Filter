@@ -17,6 +17,12 @@ class Factory(models.Model):
     Factory_Activity=models.CharField(max_length=100,verbose_name="النشاط")
     Mobile_number=models.CharField(max_length=12,verbose_name="رقم الموبايل")
     phone_number = PhoneNumberField(null=True,blank=True,default=None,verbose_name="رقم التليفون")
+    #models.ManyToOneRel()
     def __str__(self):
         return str(self.Factory_ID) 
 
+class reg (models.Model):
+    reg=   models.CharField(max_length=50,unique=True)
+    Factory_ID=models.ForeignKey(Factory, to_field='Factory_ID',db_column='Factory_ID' ,related_name='my', on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.reg)

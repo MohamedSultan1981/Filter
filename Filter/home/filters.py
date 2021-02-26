@@ -7,7 +7,7 @@ class FactoryFilter(django_filters.FilterSet):
     
     class Meta:
         model = Factory
-        fields = ['Factory_Name', 'Factory_ID', 'Factory_Activity','Factory_gov','phone_number',]
+        fields = ['Factory_Name', 'Factory_ID', 'Factory_Activity','Factory_gov','phone_number','my']
         widgets = {
             'phone_number': PhoneNumberInternationalFallbackWidget,
         }
