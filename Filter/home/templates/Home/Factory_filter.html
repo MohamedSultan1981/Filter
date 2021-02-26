@@ -13,8 +13,8 @@
   <div class="card bg-light text-dark">
   <div class="card-header bg-secondary text-white"><h3>نتائج البحث</h3></div>
   <div class="card-body">
-   {% render_table filter.qs 'django_tables2/bootstrap.html'%}
-  <!---->
+   {% comment %} {% render_table filter.qs 'django_tables2/bootstrap.html'%} {% endcomment %}
+ 
 
 
   <table class="table table-stripe">
