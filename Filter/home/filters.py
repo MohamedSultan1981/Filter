@@ -5,7 +5,7 @@ from phonenumber_field.widgets import  PhoneNumberInternationalFallbackWidget
 class FactoryFilter(django_filters.FilterSet):
   
 
-    my__reg=django_filters.BaseInFilter(lookup_expr='in',label="رقم السجل")
+    my__reg=django_filters.BaseInFilter(lookup_expr='in',label="رقم السجل",help_text="A list of county names, comma separated")
     class Meta:
         model = Factory
 
