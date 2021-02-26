@@ -9,7 +9,7 @@ class gov (models.Model):
 class products (models.Model):
     Productname=   models.CharField(max_length=50)
     def __str__(self):
-        return str(self.Productname)       
+        return str(self.pk)       
 class Factory(models.Model):
     
     Factory_Name=models.CharField(max_length=500,verbose_name="اسم المنشأه")
@@ -22,6 +22,10 @@ class Factory(models.Model):
     Mobile_number=models.CharField(max_length=12,verbose_name="رقم الموبايل")
     phone_number = PhoneNumberField(null=True,blank=True,default=None,verbose_name="رقم التليفون")
     products=models.ManyToManyField('products',through="Fact_product")
+    
+    def Productquantaies(self):
+        return Fact_product.objects.filter(Factory_ID=self.pk)
+        #return Fact_product.objects.filter(Factory_ID=self.pk, product_ID__in= self.products.pk)
     def __str__(self):
         return str(self.Factory_ID) 
 
@@ -34,7 +38,8 @@ class reg (models.Model):
 
 class Fact_product(models.Model):
     Factory_ID=models.ForeignKey(Factory, on_delete=models.CASCADE,null=True,blank=True)
-    product_ID=models.ForeignKey(products, on_delete=models.CASCADE,null=True,blank=True)
+    product_ID=models.ForeignKey(products, on_delete=models.CASCADE,null=True,blank=True,related_name="t")
     Productq=   models.CharField(max_length=50)
     def __str__(self):
         return str(self.Productq)
+        
