@@ -15,4 +15,47 @@
   <div class="card-body">
    {% render_table filter.qs 'django_tables2/bootstrap.html'%}
   <!---->
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date joined</th>
+        <th>Groups</th>
+        <th>Groups1</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fact in filter.qs %}
+        <tr>
+          <td>{{ fact.Factory_Name }}</td>
+          <td>{{ fact.first_name }}</td>
+          <td>{{ fact.Factory_Activity }}</td>
+          <td>{{ fact.Factory_gov }}</td>
+          <td>
+            {% for reg in fact.reg.all %}
+              {{ reg }}
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+          </td>
+          <td>
+            {% for reg in fact.my.all %}
+              {{ reg }}
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
