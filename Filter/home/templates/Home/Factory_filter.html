@@ -20,14 +20,15 @@
   <table class="table table-stripe">
     <thead>
       <tr>
-        <th>Factory_Name</th>
-        <th>Factory_Manger</th>
-          <th>Factory_Activity</th>
-          <th>Factory_gov</th>
+        <th>اسم المصنع </th>
+        <th>المدير المسئول</th>
+          <th>النشاط</th>
+          <th>المحافظة</th>
         
-        <th>registery</th>
-        <th>qunty</th>
-        <th>products</th>
+        <th>رقم السجل</th>
+        <th>المنتجات</th>
+        <th>الكمية</th>
+        <th>الوحدة</th>
       </tr>
     </thead>
     <tbody>
@@ -45,12 +46,7 @@
               <em class="text-muted">No group</em>
             {% endfor %}
           </td>
-          <td>
-            {% for q in fact.Productquantities.all%}
-             {{q.Productq}}<br>
-            {% empty %}
-              <em class="text-muted">No group</em>
-            {% endfor %}
+          
       
           <td>
             {% for prod in fact.products.all %}
@@ -59,6 +55,22 @@
               <em class="text-muted">No group</em>
             {% endfor %}
           </td>
+          <td>
+          
+            {% for q in fact.Productquantities.all%}
+             {{q.Productq}}<br>
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+            </td>
+            <td>
+          
+            {% for q in fact.Productquantities.all%}
+             {{q.units_id}}<br>
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+            </td>
         </tr>
       {% empty %}
         <tr>
