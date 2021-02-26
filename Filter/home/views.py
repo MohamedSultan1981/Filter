@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django_tables2.views import SingleTableMixin
 from django_tables2.export.views import ExportMixin
+from .filters import FactoryFilter
 
 
 class HomeView(LoginRequiredMixin,View):
