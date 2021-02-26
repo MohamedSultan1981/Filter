@@ -23,6 +23,7 @@ class HomeView(LoginRequiredMixin,View):
 class FilteredFactoryListView(SingleTableMixin, FilterView,ExportMixin):
     model =Factory
     filterset_class = FactoryFilter
+    #context_object_name = 'users'  # Default: object_list
     paginate_by = 1
 
 
