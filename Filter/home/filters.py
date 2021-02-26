@@ -10,7 +10,7 @@ class FactoryFilter(django_filters.FilterSet):
         model = Factory
 
         fields = ['Factory_Name'
-        , 'Factory_ID'
+        
         , 'Factory_Activity','Factory_gov','phone_number','products']
         lables={
           'my__reg':["رقم السجل"]

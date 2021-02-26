@@ -39,8 +39,8 @@
           <td>{{ fact.Factory_gov }}</td>
 
           <td>
-            {% for reg in fact.my.all %}
-              {{ reg}}-- {{reg.reqnum}}
+            {% for registry in fact.my.all %}
+              {{registry.registry_number}}
             {% empty %}
               <em class="text-muted">No group</em>
             {% endfor %}
