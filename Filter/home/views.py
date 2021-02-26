@@ -7,6 +7,7 @@ from django_tables2.views import SingleTableMixin
 from django_tables2.export.views import ExportMixin
 from .filters import FactoryFilter
 from .models import Factory
+from django_filters.views import FilterView
 
 
 class HomeView(LoginRequiredMixin,View):
