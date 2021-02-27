@@ -14,7 +14,7 @@ class Factory(models.Model):
     Factory_Address=models.TextField(max_length=500,verbose_name="العنوان",null=True,blank=True)
     Factory_Manger=models.CharField(max_length=100,verbose_name="المدير",null=True,blank=True)
     Mobile_number=models.CharField(max_length=12,verbose_name="رقم الموبايل",null=True,blank=True)
-    #products=models.ManyToManyField('products',through="Fact_product",verbose_name="المنتجات",null=True,blank=True)
+    products=models.ManyToManyField('products',through="Fact_product",verbose_name="المنتجات",null=True,blank=True)
     
     def Productquantities(self):
         return Fact_product.objects.filter(Factory_ID=self.pk).order_by("product_ID")

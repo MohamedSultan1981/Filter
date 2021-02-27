@@ -2,9 +2,11 @@ from import_export.admin import ImportExportModelAdmin
 from django.contrib import admin
 from .models import Factory,Fact_product,products,unit
 # Register your models here.
+@admin.register(Fact_product)
+class Fact_productAdmin(ImportExportModelAdmin):
+    pass
 
 
-admin.site.register(Fact_product)
 @admin.register(products)
 class productsAdmin(ImportExportModelAdmin):
     pass
