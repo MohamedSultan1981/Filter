@@ -10,7 +10,7 @@ class INDUSTRIAL_PRODUCTS(models.Model):
     PRODUCT_TITLE = models.CharField(max_length=1000, null = True,blank=True,verbose_name="اسم المنتج")
     
     def __str__(self):
-        return str(self.PRODUCT_TITLE) 
+        return str(self.PRODUCT_ID) 
     class Meta:
         ordering=['PRODUCT_ID']#could be wrong needs checking
         db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
@@ -26,11 +26,11 @@ class FACILITY_DATA(models.Model):
         return str(self.NAME) 
     def Productquantities(self):
    
-        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("PRODUCT_ID")
+        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("PRODUCT_ID")[1]
         
         #return FACILITY_PRODUCTS.objects.filter(Factory_ID=self.pk, PRODUCT_ID__in= self.Prouducts.pk)
     class Meta:
-        #ordering=['FACILITY_ID']
+        ordering=['FACILITY_ID']
 
         db_table = r'"IDA"."FACILITY_DATA"'
 
@@ -55,7 +55,7 @@ class FACILITY_PRODUCTS(models.Model):
     FAC_PROD_ID=models.CharField(max_length=50,primary_key=True)
     FACILITY_ID= models.ForeignKey(FACILITY_DATA,to_field='FACILITY_ID',db_column='FACILITY_ID',on_delete=models.CASCADE,null=True,blank=True)
     PRODUCT_ID= models.ForeignKey(INDUSTRIAL_PRODUCTS,to_field='PRODUCT_ID',db_column='PRODUCT_ID',on_delete=models.CASCADE,null=True,blank=True)
-    UNIT_ID =models.ForeignKey(MEASURING_UNITS  ,related_name='ty' ,to_field='UNIT_ID',db_column='UNIT_ID',on_delete=models.CASCADE)
+    #UNIT_ID =models.ForeignKey(MEASURING_UNITS  ,related_name='ty' ,to_field='UNIT_ID',db_column='UNIT_ID',on_delete=models.CASCADE)
     PRODUCT_QUANTITY = models.DecimalField( max_digits=38, decimal_places=3)
        
     def __str__(self):
