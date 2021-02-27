@@ -31,16 +31,15 @@ class FACILITY_DATA(models.Model):
 
         db_table = r'"IDA"."FACILITY_DATA"'
 
- class INDUSTRIAL_PRODUCTS(models.Model):
+class INDUSTRIAL_REGISTRY(models.Model):
         
-    REGISTRY_ID = models.IntegerField(primary_key=True)
-    PRODUCT_TITLE = models.CharField(max_length=1000, null = True,blank=True,verbose_name="اسم المنتج")
-    
+    REGISTRY_ID = models.CharField(max_length=50,unique=True,primary_key=True)
+    FACILITY_DATA_ID=models.ForeignKey(FACILITY_DATA, to_field='FACILITY_DATA_ID',db_column='FACILITY_DATA_ID' ,related_name='my', on_delete=models.CASCADE)
+    REGISTRY_NUMBER=models.CharField(max_length=100)
     def __str__(self):
         return str(self.PRODUCT_TITLE) 
     class Meta:
-        ordering=('PRODUCT_TITLE', )
-        db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
+       db_table = r'"IDA"."REGISTRY_NUMBER"'  
 
 
 class FACILITY_PRODUCTS(models.Model):
