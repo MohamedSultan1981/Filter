@@ -2,28 +2,7 @@ from django.db import models
 from django.core import validators
 
 # Create your models here.
-class gov (models.Model):
-    gov_name=   models.CharField(max_length=50,unique=True)
-    def __str__(self):
-        return str(self.gov_name) 
-class Factory(models.Model):
-    
-    Factory_Name=models.CharField(max_length=500,verbose_name="اسم المنشأه")
-    Factory_ID=models.CharField(max_length=20 ,primary_key=True,verbose_name="رقم المصنع")
-    Factory_Address=models.TextField(max_length=500,verbose_name="العنوان")
-    Factory_city=models.CharField(max_length=50,verbose_name="المدينة")
-    Factory_gov=models.ForeignKey(gov,on_delete=models.CASCADE,blank=True,null=True,verbose_name="المحافظة")
-    Factory_Manger=models.CharField(max_length=100,verbose_name="المدير")
-    Factory_Activity=models.CharField(max_length=100,verbose_name="النشاط")
-    Mobile_number=models.CharField(max_length=12,verbose_name="رقم الموبايل")
-    phone_number = PhoneNumberField(null=True,blank=True,default=None,verbose_name="رقم التليفون")
-    products=models.ManyToManyField('products',through="Fact_product",verbose_name="المنتجات")
-    
-    def Productquantities(self):
-        return Fact_product.objects.filter(Factory_ID=self.pk).order_by("product_ID")
-        #return Fact_product.objects.filter(Factory_ID=self.pk, product_ID__in= self.products.pk)
-    def __str__(self):
-        return str(self.Factory_ID) 
+
 
 class INDUSTRIAL_PRODUCTS(models.Model):
     
@@ -46,7 +25,8 @@ class FACILITY_DATA(models.Model):
     def __str__(self):
         return str(self.NAME) 
     def Productquantities(self):
-        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("product_ID")
+        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("PRODUCT_ID")
+        #return FACILITY_PRODUCTS.objects.filter(Factory_ID=self.pk, PRODUCT_ID__in= self.Prouducts.pk)
     class Meta:
 
         db_table = r'"IDA"."FACILITY_DATA"'
