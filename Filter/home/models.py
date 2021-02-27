@@ -33,7 +33,7 @@ class INDUSTRIAL_PRODUCTS(models.Model):
     def __str__(self):
         return str(self.PRODUCT_TITLE) 
     class Meta:
-        
+        ordering=('PRODUCT_TITLE', )
         db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
 class FACILITY_DATA(models.Model):
     
