@@ -45,13 +45,13 @@ class INDUSTRIAL_REGISTRY(models.Model):
 class FACILITY_PRODUCTS(models.Model):
     FACILITY= models.ForeignKey(FACILITY_DATA,on_delete=models.CASCADE)
     PRODUCT= models.ForeignKey(INDUSTRIAL_PRODUCTS,on_delete=models.CASCADE)
-    UNIT_ID = models.IntegerField()
+    UNIT_ID =models.ForeignKey(unit  ,related_name='ty', on_delete=models.CASCADE)
     PRODUCT_QUANTITY = models.DecimalField( max_digits=38, decimal_places=3)
-
-    
+       
     def __str__(self):
-        return str(self.UNIT_ID) 
+        return str(self.PRODUCT_QUANTITY) 
        
     class Meta:
-
+        ordering = ["PRODUCT"]
         db_table = r'"IDA"."FACILITY_PRODUCTS"'
+
