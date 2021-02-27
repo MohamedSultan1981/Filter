@@ -25,7 +25,8 @@ class FACILITY_DATA(models.Model):
     def __str__(self):
         return str(self.NAME) 
     def Productquantities(self):
-        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("PRODUCT_ID")
+        id=self.pk
+        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=id).order_by("PRODUCT_ID")
         
         #return FACILITY_PRODUCTS.objects.filter(Factory_ID=self.pk, PRODUCT_ID__in= self.Prouducts.pk)
     class Meta:
@@ -52,7 +53,7 @@ class MEASURING_UNITS (models.Model):
 
 class FACILITY_PRODUCTS(models.Model):
     FACILITY_ID= models.ForeignKey(FACILITY_DATA,to_field='FACILITY_ID',db_column='FACILITY_ID',on_delete=models.CASCADE,null=True,blank=True)
-    PRODUCT_ID= models.ForeignKey(INDUSTRIAL_PRODUCTS,to_field='PRODUCT_ID',db_column='PRODUCT_ID',on_delete=models.CASCADE)
+    PRODUCT_ID= models.ForeignKey(INDUSTRIAL_PRODUCTS,to_field='PRODUCT_ID',db_column='PRODUCT_ID',on_delete=models.CASCADE,null=True,blank=True)
     UNIT =models.ForeignKey(MEASURING_UNITS  ,related_name='ty', on_delete=models.CASCADE)
     PRODUCT_QUANTITY = models.DecimalField( max_digits=38, decimal_places=3)
        
