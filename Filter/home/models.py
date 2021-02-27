@@ -12,7 +12,7 @@ class INDUSTRIAL_PRODUCTS(models.Model):
     def __str__(self):
         return str(self.PRODUCT_TITLE) 
     class Meta:
-        ordering=('PRODUCT_TITLE', )
+        ordering=('PRODUCT_TITLE', )#could be wrong needs checking
         db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
 class FACILITY_DATA(models.Model):
     #FACILITY_DATA_ID=models.CharField(max_length=1000,primary_key=True)
@@ -40,12 +40,18 @@ class INDUSTRIAL_REGISTRY(models.Model):
         return str(self.PRODUCT_TITLE) 
     class Meta:
        db_table = r'"IDA"."REGISTRY_NUMBER"'  
-
+class MEASURING_UNITS (models.Model):
+    UNIT_ID = models.DecimalField( max_digits=38, decimal_places=0,primary_key=True)
+    UNIT_TITLE_AR=   models.CharField(max_length=50)
+    def __str__(self):
+        return str(self.unit_name)
+    class Meta:
+           db_table = r'"IDA"."MEASURING_UNITS"' 
 
 class FACILITY_PRODUCTS(models.Model):
     FACILITY= models.ForeignKey(FACILITY_DATA,on_delete=models.CASCADE)
     PRODUCT= models.ForeignKey(INDUSTRIAL_PRODUCTS,on_delete=models.CASCADE)
-    UNIT_ID =models.ForeignKey(unit  ,related_name='ty', on_delete=models.CASCADE)
+    UNIT_ID =models.ForeignKey(MEASURING_UNITS  ,related_name='ty', on_delete=models.CASCADE)
     PRODUCT_QUANTITY = models.DecimalField( max_digits=38, decimal_places=3)
        
     def __str__(self):
