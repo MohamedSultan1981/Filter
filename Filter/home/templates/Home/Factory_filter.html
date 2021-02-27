@@ -22,8 +22,6 @@
       <tr>
         <th>اسم المصنع </th>
         <th>المدير المسئول</th>
-         
-        
         <th>رقم السجل</th>
         <th>المنتجات</th>
         <th>الكمية</th>
@@ -38,6 +36,7 @@
           <td>{{ fact.Factory_ID }}</td>
           
           <td>
+            
             {% for prod in fact.products.all %}
               {{ prod.Productname}}<br>
             {% empty %}
