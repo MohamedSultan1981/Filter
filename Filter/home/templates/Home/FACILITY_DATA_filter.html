@@ -12,6 +12,7 @@
     <button type="submit" class="btn btn-success btn-lg">Search</button>
   </form>
   <br/>
+ 
   {% endblock %}
    {% block results %}
   <div class="card bg-light text-dark">
@@ -56,6 +57,8 @@ download <code>.{{ format }}</code>
             <em class="text-muted">No group</em>
           {% endfor %}
         </ul>
+        </td>
+       
         </td>
       </tr>
     {% empty %}
