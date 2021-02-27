@@ -1,9 +1,16 @@
+from import_export.admin import ImportExportModelAdmin
 from django.contrib import admin
-from .models import Factory,gov,registry,Fact_product,products,unit
+from .models import Factory,Fact_product,products,unit
 # Register your models here.
-admin.site.register(Factory)
-admin.site.register(gov)
-admin.site.register(registry)
-admin.site.register(products)
+
+
 admin.site.register(Fact_product)
-admin.site.register(unit)
+@admin.register(products)
+class productsAdmin(ImportExportModelAdmin):
+    pass
+@admin.register(unit)
+class unitAdmin(ImportExportModelAdmin):
+    pass
+@admin.register(Factory)
+class FactoryAdmin(ImportExportModelAdmin):
+    pass

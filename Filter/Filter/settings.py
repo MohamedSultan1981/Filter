@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'crispy_forms',
     "django_tables2",
+    'import_export',
 
 ]
 
@@ -137,3 +138,4 @@ LOGIN_REDIRECT_URL='/'
 PHONENUMBER_DB_FORMAT='INTERNATIONAL'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #ALLOWED_HOSTS= ['localhost','server ip','127.0.0.1']
+IMPORT_EXPORT_USE_TRANSACTIONS = True
