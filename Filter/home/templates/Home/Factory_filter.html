@@ -22,8 +22,7 @@
       <tr>
         <th>اسم المصنع </th>
         <th>المدير المسئول</th>
-          <th>النشاط</th>
-          <th>المحافظة</th>
+         
         
         <th>رقم السجل</th>
         <th>المنتجات</th>
@@ -36,17 +35,9 @@
         <tr>
           <td>{{ fact.Factory_Name }}</td>
           <td>{{ fact.Factory_Manger}}</td>
-          <td>{{ fact.Factory_Activity }}</td>
-          <td>{{ fact.Factory_gov }}</td>
-
-          <td>
-            {% for registry in fact.my.all %}
-              {{registry.registry_number}}
-            {% empty %}
-              <em class="text-muted">No group</em>
-            {% endfor %}
-          </td>
+          <td>{{ fact.Factory_ID }}</td>
           
+                  
       
           <td>
             {% for prod in fact.products.all %}
