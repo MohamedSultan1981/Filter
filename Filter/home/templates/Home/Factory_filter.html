@@ -14,5 +14,87 @@
   <div class="card-header bg-secondary text-white"><h3>نتائج البحث</h3></div>
   <div class="card-body">
    {% render_table filter.qs 'django_tables2/bootstrap.html'%}
-  <!---->
+   <table class="table table-stripe">
+    <thead>
+      <tr>
+        <th>اسم المصنع </th>
+        <th>المدير المسئول</th>
+          <th>النشاط</th>
+          <th>المحافظة</th>
+        
+        <th>رقم السجل</th>
+        <th>المنتجات</th>
+        <th>الكمية</th>
+        <th>الوحدة</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fact in object_list %}
+        <tr>
+          <td>{{ fact.Factory_Name }}</td>
+          <td>{{ fact.Factory_Manger}}</td>
+          <td>{{ fact.Factory_Activity }}</td>
+          <td>{{ fact.Factory_gov }}</td>
+
+          <td>
+            {% for registry in fact.my.all %}
+              {{registry.registry_number}}
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+          </td>
+          
+      
+          <td>
+            {% for prod in fact.products.all %}
+              {{ prod.Productname}}<br>
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+          </td>
+          <td>
+          
+            {% for q in fact.Productquantities.all%}
+             {{q.Productq}}<br>
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+            </td>
+            <td>
+          
+            {% for q in fact.Productquantities.all%}
+             {{q.units_id}}<br>
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+            </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
 {% endblock %}
