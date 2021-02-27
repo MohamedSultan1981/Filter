@@ -9,7 +9,7 @@ class FactoryFilter(django_filters.FilterSet):
     class Meta:
         model = Factory
 
-        fields = ['Factory_Name','Factory_ID']
+        fields = ['Factory_Name','Factory_ID','Factory_Address','Factory_Manger','Mobile_number','products']
         
        
         #fields = ['Factory_Name', 'Factory_ID', 'Factory_Activity','Factory_gov','phone_number','my__reg']
