@@ -36,7 +36,13 @@
           <td>{{ fact.CEO_NAME }}</td>
           <td>{{ fact.DETAILED_ADDRESS }}</td>
           <td>{{ fact.PRIMARY_MOBILE }}</td>
-       
+         <td>
+            {% for registry in fact.my.all %}
+              {{registry.REGISTRY_NUMBER}}
+            {% empty %}
+              <em class="text-muted">No group</em>
+            {% endfor %}
+          </td>
           
           
 

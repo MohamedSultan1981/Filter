@@ -39,7 +39,7 @@ class INDUSTRIAL_REGISTRY(models.Model):
     def __str__(self):
         return str(self.REGISTRY_NUMBER) 
     class Meta:
-       db_table = r'"IDA"."REGISTRY_NUMBER"'  
+       db_table = r'"IDA"."INDUSTRIAL_REGISTRY"'  
 class MEASURING_UNITS (models.Model):
     UNIT_ID = models.DecimalField( max_digits=38, decimal_places=0,primary_key=True)
     UNIT_TITLE_AR=   models.CharField(max_length=50)
