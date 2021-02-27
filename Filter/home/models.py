@@ -37,7 +37,7 @@ class INDUSTRIAL_REGISTRY(models.Model):
     FACILITY_DATA_ID=models.ForeignKey(FACILITY_DATA, to_field='FACILITY_ID',db_column='FACILITY_ID' ,related_name='my', on_delete=models.CASCADE)
     REGISTRY_NUMBER=models.CharField(max_length=100)
     def __str__(self):
-        return str(self.PRODUCT_TITLE) 
+        return str(self.REGISTRY_NUMBER) 
     class Meta:
        db_table = r'"IDA"."REGISTRY_NUMBER"'  
 class MEASURING_UNITS (models.Model):
