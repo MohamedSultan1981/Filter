@@ -9,7 +9,7 @@ class FactoryFilter(django_filters.FilterSet):
     Factory_Address = django_filters.CharFilter(lookup_expr='icontains',label="التليفون")
   
 
-    Factory_ID=django_filters.BaseInFilter(lookup_expr='in',label="رقم السجل",help_text="A list of county names, comma separated")
+    Factory_ID=django_filters.BaseInFilter(lookup_expr='in',label="رقم السجل",help_text="قم بادخال ارقام السجل مفصوله ب علامة الترقيم")
     class Meta:
         model = Factory
 
