@@ -3,6 +3,10 @@ import django_filters
 from django_filters.widgets import CSVWidget
 from phonenumber_field.widgets import  PhoneNumberInternationalFallbackWidget
 class FactoryFilter(django_filters.FilterSet):
+    Factory_Name = django_filters.CharFilter(lookup_expr='icontains',label="اسم المنشأة")
+    Factory_Manger = django_filters.CharFilter(lookup_expr='icontains',label="المدير")
+    Factory_Address = django_filters.CharFilter(lookup_expr='icontains',label="العنوان")
+    Factory_Address = django_filters.CharFilter(lookup_expr='icontains',label="التليفون")
   
 
     Factory_ID=django_filters.BaseInFilter(lookup_expr='in',label="رقم السجل",help_text="A list of county names, comma separated")
