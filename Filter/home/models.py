@@ -30,7 +30,7 @@ class Fact_product(models.Model):
     Factory_ID=models.ForeignKey(Factory, on_delete=models.CASCADE,null=True,blank=True)
     product_ID=models.ForeignKey(products, on_delete=models.CASCADE,null=True,blank=True,related_name="t")
     Productq=   models.CharField(max_length=50)
-    units_id=models.ForeignKey(unit  ,related_name='ty', on_delete=models.CASCADE)
+    units_id=models.ForeignKey(unit  ,related_name='ty',null=True,blank=True, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.Productq)
        
