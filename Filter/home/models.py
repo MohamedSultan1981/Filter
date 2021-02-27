@@ -31,7 +31,16 @@ class FACILITY_DATA(models.Model):
 
         db_table = r'"IDA"."FACILITY_DATA"'
 
- 
+ class INDUSTRIAL_PRODUCTS(models.Model):
+        
+    REGISTRY_ID = models.IntegerField(primary_key=True)
+    PRODUCT_TITLE = models.CharField(max_length=1000, null = True,blank=True,verbose_name="اسم المنتج")
+    
+    def __str__(self):
+        return str(self.PRODUCT_TITLE) 
+    class Meta:
+        ordering=('PRODUCT_TITLE', )
+        db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
 
 
 class FACILITY_PRODUCTS(models.Model):
