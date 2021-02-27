@@ -36,13 +36,11 @@
           <td>{{ fact.CEO_NAME }}</td>
           <td>{{ fact.DETAILED_ADDRESS }}</td>
           <td>{{ fact.PRIMARY_MOBILE }}</td>
-          <td>
-            {% for p in fact.Prouducts.all %}
-              {{ p }}
-            {% empty %}
-              <em class="text-muted">No group</em>
-            {% endfor %}
-          </td>
+       
+          
+          
+
+
         </tr>
       {% empty %}
         <tr>
