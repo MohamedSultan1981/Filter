@@ -22,7 +22,7 @@ class FilteredFACILITY_DATAListView(SingleTableMixin, FilterView,ExportMixin):
         model =FACILITY_DATA
         filterset_class = FACILITY_DATAFilter
         #context_object_name = 'users'  # Default: object_list
-        paginate_by = 4
+        paginate_by = 160
         # def get_queryset(self):
         #     queryset = super().get_queryset()
         #     return FACILITY_DATAFilter(self.request.GET, queryset=queryset).qs 
