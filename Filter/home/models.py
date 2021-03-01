@@ -55,7 +55,7 @@ class FACILITY_PRODUCTS(models.Model):
     FAC_PROD_ID=models.CharField(max_length=50,primary_key=True)
     FACILITY_ID= models.ForeignKey(FACILITY_DATA,to_field='FACILITY_ID',db_column='FACILITY_ID',on_delete=models.CASCADE)
     PRODUCT_ID= models.ForeignKey(INDUSTRIAL_PRODUCTS,to_field='PRODUCT_ID',db_column='PRODUCT_ID',on_delete=models.CASCADE)
-    #UNIT_ID =models.ForeignKey(MEASURING_UNITS  ,related_name='ty' ,to_field='UNIT_ID',db_column='UNIT_ID',on_delete=models.CASCADE)
+    UNIT_ID =models.ForeignKey(MEASURING_UNITS  ,related_name='ty' ,to_field='UNIT_ID',db_column='UNIT_ID',on_delete=models.CASCADE)
     PRODUCT_QUANTITY = models.DecimalField( max_digits=38, decimal_places=3)
        
     def __str__(self):
