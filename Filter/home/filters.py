@@ -10,5 +10,5 @@ class FACILITY_DATAFilter(django_filters.FilterSet):
 
     class Meta:
         model = FACILITY_DATA
-        fields = ['NAME','CEO_NAME','DETAILED_ADDRESS','PRIMARY_MOBILE','my__REGISTRY_NUMBER']
+        fields = ['NAME','CEO_NAME','DETAILED_ADDRESS','PRIMARY_MOBILE','my__REGISTRY_NUMBER','Prouducts']
       
