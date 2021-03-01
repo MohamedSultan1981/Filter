@@ -17,7 +17,7 @@
 
 
 
-  <table class="table table-bordered">
+  <table class="table table-striped">
     <thead>
       <tr>
       <th>اسم المصنع </th>
@@ -78,6 +78,8 @@
       {% endfor %}
     </tbody>
   </table>
+
+  
   {% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
@@ -102,5 +104,3 @@
 {% endblock %}
   
   
-  </div>
-{% endblock %}
