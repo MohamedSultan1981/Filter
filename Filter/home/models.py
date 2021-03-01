@@ -26,9 +26,9 @@ class FACILITY_DATA(models.Model):
         return str(self.NAME) 
     def Productquantities(self):
    
-        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("PRODUCT_ID")[1]
+        return FACILITY_PRODUCTS.objects.filter(FACILITY_ID=self.pk).order_by("PRODUCT_ID")
         
-        #return FACILITY_PRODUCTS.objects.filter(Factory_ID=self.pk, PRODUCT_ID__in= self.Prouducts.pk)
+        return FACILITY_PRODUCTS.objects.filter(Factory_ID=self.pk, PRODUCT_ID__in= self.Prouducts.pk)
     class Meta:
         ordering=['FACILITY_ID']
 
