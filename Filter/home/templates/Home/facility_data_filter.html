@@ -63,7 +63,7 @@
            <td>
           
             {% for q in fact.Productquantities.all%}
-             {{q.PRODUCT_QUANTITY}}<br>
+             {{q.UNIT_ID}}<br>
             {% empty %}
               <em class="text-muted">No group</em>
             {% endfor %}

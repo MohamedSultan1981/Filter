@@ -12,7 +12,7 @@ class INDUSTRIAL_PRODUCTS(models.Model):
     def __str__(self):
         return str(self.PRODUCT_TITLE) 
     class Meta:
-        ordering=['PRODUCT_ID']#could be wrong needs checking
+        ordering=['PRODUCT_TITLE']#could be wrong needs checking
         db_table = r'"IDA"."INDUSTRIAL_PRODUCTS"'  
 class FACILITY_DATA(models.Model):
     FACILITY_DATA_ID=models.CharField(max_length=50,unique=True)
@@ -62,6 +62,6 @@ class FACILITY_PRODUCTS(models.Model):
         return str(self.PRODUCT_QUANTITY) 
        
     class Meta:
-        ordering = ["PRODUCT_ID"]
+        #ordering = ["PRODUCT_ID"]
         db_table = r'"IDA"."FACILITY_PRODUCTS"'
 
