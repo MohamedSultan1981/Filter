@@ -15,4 +15,5 @@ class unitAdmin(ImportExportModelAdmin):
     pass
 @admin.register(Factory)
 class FactoryAdmin(ImportExportModelAdmin):
+    #search_fields = ('name', 'description', 'keyword', )
     pass
