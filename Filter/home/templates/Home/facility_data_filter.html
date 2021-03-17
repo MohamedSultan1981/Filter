@@ -22,10 +22,10 @@
       <tr>
       <th>اسم المصنع </th>
         <th>المدير المسئول</th>
-        <th>العنوان</th>
+        <th style="width: 10%;">العنوان</th>
         <th>رقم التليفون</th>
         <th>رقم السجل</th>
-        <th>المنتجات</th>
+        <th >المنتجات</th>
         <th>الكمية</th>
         <th>الوحدة</th>
       </tr> 
@@ -34,8 +34,8 @@
       {% for fact in object_list %}
         <tr>
           <td>{{ fact.NAME }}</td>
-          <td>{{ fact.CEO_NAME }}</td>
-          <td>{{ fact.DETAILED_ADDRESS }}</td>
+          <td style="width: 10%;">{{ fact.CEO_NAME }}</td>
+          <td >{{ fact.DETAILED_ADDRESS }}</td>
           <td>{{ fact.PRIMARY_MOBILE }}</td>
          <td>
             {% for registry in fact.my.all %}
@@ -44,7 +44,7 @@
               <em class="text-muted">No group</em>
             {% endfor %}
           </td>
-          <td>
+          <td  > 
             {% for prod in fact.Prouducts.all %}
               {{ prod.PRODUCT_TITLE}}<br>
             {% empty %}
