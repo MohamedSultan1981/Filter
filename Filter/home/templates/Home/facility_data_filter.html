@@ -78,7 +78,7 @@
       {% endfor %}
     </tbody>
   </table>
-
+ 
   
   {% if is_paginated %}
   <ul class="pagination">
@@ -90,7 +90,7 @@
     {% for i in paginator.page_range %}
       {% if page_obj.number == i %}
         <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
+      {% elif i > page_obj.number|add:'-35' and i < page_obj.number|add:'35' %}
         <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }} </a></li>
       {% endif %}
     {% endfor %}
