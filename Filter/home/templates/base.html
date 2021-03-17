@@ -32,7 +32,7 @@
   <link href="{% static 'home/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
+  <!--<link href="{% static 'home/styles/style.css' %}" rel="stylesheet">-->
 
   <!-- =======================================================
   * Template Name: FlexStart - v1.1.1
@@ -40,6 +40,28 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+  .orangeFooter {
+  background: #f37121;
+  color: #fff;
+  text-align: center;
+  direction: rtl;
+  position: fixed;
+  bottom: 0 !important;
+  width: 100%;
+  /*font-size: 0.8em;*/
+  padding-top: 10px;
+  padding: 2px;
+}
+.borderedText{
+  border-bottom:solid 1px silver; 
+  padding-bottom: 1px;
+}
+p:last-child {
+  border-bottom:none; 
+  padding-bottom: 0;
+}
+  </style>
 </head>
 
 <body>
@@ -114,9 +136,11 @@
       </div>
 
     </section><!-- End About Section -->
-    <div class="footer" style="text-align:center">
-    	<span lang="ar-eg">C</span>opy<span lang="ar-eg">R</span>ights IDA ا<span lang="ar-eg">الهيئة 
-		العامة للتنميه الصناعيه</span></div>
+    <div class="footer orangeFooter" style="text-align:center">
+    
+    	الهيئة العامة للتنمية الصناعية <script>document.write(new Date().getFullYear())</script>
+     
+      </div>
    
 
   

@@ -5,7 +5,7 @@
 {% block content %}
   <form method="get">
     {{ filter.form |crispy }}
-    <button type="submit" class="btn btn-success btn-lg">Search</button>
+    <button type="submit" class="btn btn-info btn-lg">Search</button>
   </form>
   <br/>
   {% endblock %}
@@ -44,9 +44,11 @@
               <em class="text-muted">No group</em>
             {% endfor %}
           </td>
-          <td  > 
+          <td> 
             {% for prod in fact.Prouducts.all %}
-              {{ prod.PRODUCT_TITLE}}<br>
+            <p class="borderedText">
+              {{ prod.PRODUCT_TITLE}}
+            </p>
             {% empty %}
               <em class="text-muted">No group</em>
             {% endfor %}
@@ -54,7 +56,9 @@
            <td>
           
             {% for q in fact.Productquantities.all%}
-             {{q.PRODUCT_QUANTITY}}<br>
+            <p class="borderedText">
+             {{q.PRODUCT_QUANTITY}}
+             </p>
             {% empty %}
               <em class="text-muted">No group</em>
             {% endfor %}
@@ -63,7 +67,9 @@
            <td>
           
             {% for q in fact.Productquantities.all%}
-             {{q.UNIT_ID}}<br>
+            <p class="borderedText">
+             {{q.UNIT_ID}}
+             </p>
             {% empty %}
               <em class="text-muted">No group</em>
             {% endfor %}
