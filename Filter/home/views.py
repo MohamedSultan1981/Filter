@@ -20,7 +20,7 @@ class HomeView(LoginRequiredMixin,View):
             'islocal': islocal
         }
         return render(request, 'home/index.html', context)
-class FilteredFactoryListView(SingleTableView, FilterView,ExportMixin):
+class FilteredFactoryListView(FilterView,ExportMixin,SingleTableView):
     model =Factory
     filterset_class = FactoryFilter
     #context_object_name = 'users'  # Default: object_list

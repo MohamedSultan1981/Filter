@@ -14,10 +14,9 @@
   <div class="card bg-light text-dark">
   <div class="card-header bg-secondary text-white"><h3>نتائج البحث</h3></div>
   <div class="card-body">
-   {% comment %} {% render_table filter.qs 'django_tables2/bootstrap.html'%} {% endcomment %}
- 
-
-
+    <a href="{% export_url 'xlsx'%}"> لتحميل النتائج في صورة  ملف اكسيل </a>
+    <!-- {% render_table filter.qs 'django_tables2/bootstrap.html'%}  -->
+    
   <table class="table table-striped">
     <thead>
       <tr>
