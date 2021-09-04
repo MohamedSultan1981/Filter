@@ -20,4 +20,10 @@ class FactoryFilter(django_filters.FilterSet):
         widgets = {
             'phone_number': PhoneNumberInternationalFallbackWidget,
         }
+    def __init__(self, *args, **kwargs):
+        super(FactoryFilter, self).__init__(*args, **kwargs)
+        # at sturtup user doen't push Submit button, and QueryDict (in data) is empty
+        if self.data == {}:
+            self.queryset = self.queryset.none()    
+       
        
